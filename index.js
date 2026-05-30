@@ -1,3 +1,5 @@
+const budget = document.body.querySelector('#budget_number');
+
 const wage = 35.32;
 
 function monthlyPay(hours){
@@ -99,4 +101,5 @@ class Budget {
 
 const justinBudget = new Budget(60, 45, 105);
 
-console.log(justinBudget.budgetTotal());
+budget.innerHTML = justinBudget.budgetTotal();
+
