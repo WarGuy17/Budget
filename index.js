@@ -19,6 +19,7 @@ function monthlyPay(hours){
 
 monthlyPay(84);
 
+//the class below tracks the total budget of the month.
 class Budget {
     constructor(subscriptions, phone, internet){
         this._rent = 1450;
@@ -96,6 +97,35 @@ class Budget {
         const internet = this._internet;
 
         return rent + carPayments + grocery + electric + subscriptions + phone + internet;
+    }
+}
+
+//the class below tracks what payments the user did.
+class Payments {
+    constructor(rent, carPayments, grocery, electric, subscriptions, phone, internet, miscellaneous){
+        this._rent = rent;
+        this._carPayments = carPayments;
+        this._grocery = grocery;
+        this._electric = electric;
+        this._subscriptions = subscriptions;
+        this._phone = phone;
+        this._internet = internet;
+        this._miscellaneous = miscellaneous;
+    }
+
+    get rent(){
+        return this._rent;
+    }
+
+    get carPayments(){
+        return this._carPayments;
+    }
+    get grocery(){
+        return this._grocery;
+    }
+
+    get electric(){
+        return this._electric;
     }
 }
 
