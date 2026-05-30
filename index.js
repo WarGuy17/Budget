@@ -1,4 +1,8 @@
 const budget = document.body.querySelector('#budget_number');
+const budgetUsed = document.body.querySelector('#budget_used');
+const budgetLeft = document.body.querySelector('#budget_left');
+const barMarker = document.querySelector('#marker_bar');
+
 
 const wage = 35.32;
 
@@ -120,6 +124,7 @@ class Payments {
     get carPayments(){
         return this._carPayments;
     }
+
     get grocery(){
         return this._grocery;
     }
@@ -127,9 +132,92 @@ class Payments {
     get electric(){
         return this._electric;
     }
+
+    get subscriptions(){
+        return this._subscriptions;
+    }
+
+    get phone(){
+        return this._phone;
+    }
+
+    get internet(){
+        return this._internet;
+    }
+
+    get miscellaneous(){
+        return this._miscellaneous;
+    }
+
+    set rent(payment){
+        this._rent = payment;
+    }
+
+    set carPayments(payment){
+        this._carPayments = payment;
+    }
+
+    set grocery(payment){
+        this._grocery = payment;
+    }
+
+    set electric(payment){
+        this._electric = payment;
+    }
+
+    set subscriptions(payment){
+        this._subscriptions = payment;
+    }
+
+    set phone(payment){
+        this._phone = payment;
+    }
+
+    set internet(payment){
+        this._internet = payment;
+    }
+
+    set miscellaneous(payment){
+        this._miscellaneous = payment;
+    }
+
+    paymentTotal(){
+        const rent = this._rent;
+        const carPayments = this._carPayments;
+        const grocery = this._grocery;
+        const electric = this._electric;
+        const subscriptions = this._subscriptions;
+        const phone = this._phone;
+        const internet = this._internet;
+        const miscellaneous = this._miscellaneous;
+
+        return rent + carPayments + grocery + electric + subscriptions + phone + internet + miscellaneous;
+    }
 }
 
 const justinBudget = new Budget(60, 45, 105);
 
-budget.innerHTML = justinBudget.budgetTotal();
+const justinPayment = new Payments(1450, 744, 600, 250, 60, 45, 105, 200);
+
+const totalBudget = justinBudget.budgetTotal();
+const spent = justinPayment.paymentTotal();
+const remainingBudget = totalBudget - spent;
+const usedPercent = Math.min(100, Math.max(0, (spent / totalBudget) * 100));
+
+
+
+barMarker.style.right = `${usedPercent}%`;
+
+
+budget.innerHTML = totalBudget;
+budgetUsed.innerHTML = spent;
+budgetLeft.innerHTML = remainingBudget;
+
+if (remainingBudget < 0) {
+    budgetLeft.style.color = 'red';
+} else {
+    budgetLeft.style.color = '';
+}
+
+
 
