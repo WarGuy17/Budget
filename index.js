@@ -2,6 +2,7 @@ const budget = document.body.querySelector('#budget_number');
 const budgetUsed = document.body.querySelector('#budget_used');
 const budgetLeft = document.body.querySelector('#budget_left');
 const barMarker = document.querySelector('#marker_bar');
+const barFill = document.querySelector('.bar-fill');
 
 
 const wage = 35.32;
@@ -197,7 +198,7 @@ class Payments {
 
 const justinBudget = new Budget(60, 45, 105);
 
-const justinPayment = new Payments(1450, 744, 600, 250, 60, 45, 105, 200);
+const justinPayment = new Payments(1250, 744, 600, 250, 60, 45, 105, 0);
 
 const totalBudget = justinBudget.budgetTotal();
 const spent = justinPayment.paymentTotal();
@@ -205,18 +206,21 @@ const remainingBudget = totalBudget - spent;
 const usedPercent = Math.min(100, Math.max(0, (spent / totalBudget) * 100));
 
 
+barFill.style.width = `${usedPercent}%`;
+barMarker.style.left = `${usedPercent}%`;
 
-barMarker.style.right = `${usedPercent}%`;
 
 
 budget.innerHTML = totalBudget;
 budgetUsed.innerHTML = spent;
 budgetLeft.innerHTML = remainingBudget;
 
-if (remainingBudget < 0) {
-    budgetLeft.style.color = 'red';
+if(usedPercent < 50){
+    barFill.style.background = '#4caf50';
+} else if(usedPercent < 90){
+    barFill.style.background = '#ffeb3b';
 } else {
-    budgetLeft.style.color = '';
+    barFill.style.background = '#f44336';
 }
 
 
