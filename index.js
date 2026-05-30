@@ -37,7 +37,7 @@ class Budget {
     }
 
     get grocery(){
-        return this._rent;
+        return this._grocery;
     }
 
     get electric(){
@@ -53,7 +53,7 @@ class Budget {
     }
 
     get internet(){
-        return this.internet;
+        return this._internet;
     }
 
     set rent(price){
@@ -81,7 +81,7 @@ class Budget {
     }
 
     set internet(price){
-        this.internet = price;
+        this._internet = price;
     }
 
     budgetTotal(){
@@ -90,7 +90,7 @@ class Budget {
         const grocery = this._grocery;
         const electric = this._electric;
         const subscriptions = this._subscriptions;
-        const phone = this._subscriptions;
+        const phone = this._phone;
         const internet = this._internet;
 
         return rent + carPayments + grocery + electric + subscriptions + phone + internet;

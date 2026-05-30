@@ -7,10 +7,16 @@
 header {
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background-color: lightGray;
     border-bottom: 2px solid black;
+    padding: 1rem;
+}
+
+header h1 {
+    flex: 1;
+    text-align: center;
 }
 
 header img {
@@ -21,20 +27,74 @@ header img {
 #main_section {
     display: grid;
     grid-template-columns: 1.25fr 1fr;
-    grid-template-rows: auto auto;
-    height: 20rem;
-    border: 1px dotted red;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    min-height: calc(100vh - 100px);
 }
 
 #graph {
+    grid-column: 1;
+    grid-row: 1 / 3;
     display: flex;
     justify-content: center;
-    border: 1px dotted red;
+    align-items: center;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 8px;
 }
 
 #stats_section {
+    grid-column: 2;
+    grid-row: 1;
     display: flex;
-    align-items: center;
     flex-direction: column;
-    border: 1px dotted red;
+    gap: 1rem;
+}
+
+#budget_bar {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    flex: 1;
+}
+
+#budget_bar h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+#bar {
+    height: 30px;
+    background: linear-gradient(to right, #4caf50 0%, #ffc107 70%, #f44336 100%);
+    border-radius: 4px;
+    width: 100%;
+}
+
+#biggest_transactions {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    flex: 1;
+}
+
+#biggest_transactions h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+#upcoming_bills {
+    grid-column: 2;
+    grid-row: 2;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+#upcoming_bills h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
 }
