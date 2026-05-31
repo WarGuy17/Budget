@@ -3,6 +3,7 @@ const budgetUsed = document.body.querySelector('#budget_used');
 const budgetLeft = document.body.querySelector('#budget_left');
 const barMarker = document.querySelector('#marker_bar');
 const barFill = document.querySelector('.bar-fill');
+const paymentButton = document.querySelector('#payment_button');
 
 
 const wage = 35.32;
@@ -214,6 +215,10 @@ barMarker.style.left = `${usedPercent}%`;
 budget.innerHTML = totalBudget;
 budgetUsed.innerHTML = spent;
 budgetLeft.innerHTML = remainingBudget;
+
+paymentButton.addEventListener('click', () => {
+    
+})
 
 if(usedPercent < 50){
     barFill.style.background = '#4caf50';

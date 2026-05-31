@@ -13,6 +13,12 @@
         <img src="./media/images/new-budget-logo.png">
         <h1>Justin's Budget</h1>
     </header>
+    <div id="payment-popup">
+        <h3>Add Payment</h3>
+        <form>
+            <h4>Category</h4>
+        </form>
+    </div>
     <main id="main_section">
         <!--This is the graph that will be to the left.-->
         <section id="graph">
@@ -24,19 +30,23 @@
 
             <!--This is the budget bar shows how close or over the budget you are.-->
             <div id="budget_bar">
-                <h2>Budget</h2>
+                <h2 id="budget-top">Budget Box</h2>
+                <h3>Budget Total</h3>
                 <h3 id="budget_number" class="budget_data"></h3>
-                <h2>Budget Used</h2>
+                <h3>Budget Used</h3>
                 <h3 id="budget_used" class="budget_data"></h3>
-                <h2>Budget Left</h2>
+                <h3>Budget Left</h3>
                 <h3 id="budget_left" class="budget_data"></h3>
                 <div id="bar">
                     <div class="bar-fill"></div>
                     <div id="marker_bar"></div>
                 </div>
             </div>
-            <div id="biggest_transactions">
-                <h2>Biggest Transactions</h2>
+            <div id="payments">
+                <div id="payments-top">
+                    <h2>Payments</h2>
+                    <img class="plus-icon" id="payment_button" src="./media/images/new-add-button.png">
+                </div>
             </div>
         </section>
         <section id="upcoming_bills">
