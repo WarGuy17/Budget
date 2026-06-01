@@ -4,26 +4,8 @@ const budgetLeft = document.body.querySelector('#budget_left');
 const barMarker = document.querySelector('#marker_bar');
 const barFill = document.querySelector('.bar-fill');
 const paymentButton = document.querySelector('#payment_button');
-
-
-const wage = 35.32;
-
-function monthlyPay(hours){
-    let payCheck;
-    if(hours <= 80){
-        payCheck = hours * wage;
-    }
-    else if(hours > 80){
-        const overTime = hours - 80;
-        const overTimeWage = wage * 1.5;
-        const overTimePay = overTime * overTimeWage;
-        payCheck = 80 * wage;
-        payCheck = payCheck + overTimePay;
-    }
-    console.log(Math.round((payCheck * .677)* 2));
-}
-
-monthlyPay(84);
+const paymentPopup = document.querySelector('#payment_popup');
+const closeButton = document.querySelector('.close-btn');
 
 //the class below tracks the total budget of the month.
 class Budget {
@@ -199,7 +181,7 @@ class Payments {
 
 const justinBudget = new Budget(60, 45, 105);
 
-const justinPayment = new Payments(1250, 744, 600, 250, 60, 45, 105, 0);
+const justinPayment = new Payments(0, 744, 600, 250, 60, 45, 105, 0);
 
 const totalBudget = justinBudget.budgetTotal();
 const spent = justinPayment.paymentTotal();
@@ -215,9 +197,14 @@ barMarker.style.left = `${usedPercent}%`;
 budget.innerHTML = totalBudget;
 budgetUsed.innerHTML = spent;
 budgetLeft.innerHTML = remainingBudget;
+paymentPopup.classList.add('hidden');
 
 paymentButton.addEventListener('click', () => {
-    
+    paymentPopup.classList.remove('hidden');
+})
+
+closeButton.addEventListener('click', () => {
+    paymentPopup.classList.add('hidden');
 })
 
 if(usedPercent < 50){

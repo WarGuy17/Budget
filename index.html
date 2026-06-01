@@ -13,11 +13,30 @@
         <img src="./media/images/new-budget-logo.png">
         <h1>Justin's Budget</h1>
     </header>
-    <div id="payment-popup">
-        <h3>Add Payment</h3>
-        <form>
-            <h4>Category</h4>
-        </form>
+    <div id="payment_popup">
+        <div id="payment_top_popup">
+            <h3>Add Payment</h3>
+            <button class="close-btn">&times;</button>
+        </div>
+        <div class="form-row">
+            <label for="category">Category</label>
+            <select id="category">
+                <option value=""></option>
+                <option value="grocery">Grocery</option>
+                <option value="rent">Rent</option>
+                <option value="cary-payments">Car Payments</option>
+                <option value="electric">Electric</option>
+                <option value="subscriptions">Subscriptions</option>
+                <option value="phone">Phone</option>
+                <option value="internet">Internet</option>
+                <option value="miscellaneous">Miscellaneous</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <label for="amount">Amount</label>
+            <input id="amount" type="number" placeholder="0.00">
+            <div class="button" id="payment_button2">Submit</div>
+        </div>
     </div>
     <main id="main_section">
         <!--This is the graph that will be to the left.-->
@@ -30,7 +49,7 @@
 
             <!--This is the budget bar shows how close or over the budget you are.-->
             <div id="budget_bar">
-                <h2 id="budget-top">Budget Box</h2>
+                <h2 class="box-title" id="budget-top">Budget Box</h2>
                 <h3>Budget Total</h3>
                 <h3 id="budget_number" class="budget_data"></h3>
                 <h3>Budget Used</h3>
@@ -44,7 +63,7 @@
             </div>
             <div id="payments">
                 <div id="payments-top">
-                    <h2>Payments</h2>
+                    <h2 class="box-title">Payments</h2>
                     <img class="plus-icon" id="payment_button" src="./media/images/new-add-button.png">
                 </div>
             </div>
