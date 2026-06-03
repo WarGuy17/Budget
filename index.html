@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget</title>
     <link href="./media/styles.css" rel="stylesheet">
-    <script src="index.js" defer></script>
+    <script type="module" src="index.js" defer></script>
 </head>
 <body>
     <!--This is the header, has a logo to the left and the title to the right.-->
@@ -13,6 +13,8 @@
         <img src="./media/images/new-budget-logo.png">
         <h1>Justin's Budget</h1>
     </header>
+
+    <!--This is the popup for adding Payments-->
     <div id="payment_popup">
         <div id="payment_top_popup">
             <h3>Add Payment</h3>
@@ -39,6 +41,7 @@
         </div>
     </div>
     <main id="main_section">
+
         <!--This is the graph that will be to the left.-->
         <section id="graph">
             <h2>This is a graph section</h2>
@@ -61,6 +64,8 @@
                     <div id="marker_bar"></div>
                 </div>
             </div>
+            
+            <!--This is the payments section-->
             <div id="payments">
                 <div id="payments-top">
                     <h2 class="box-title">Payments</h2>
@@ -68,6 +73,8 @@
                 </div>
             </div>
         </section>
+
+        <!--This is the Upcoming Bills Section-->
         <section id="upcoming_bills">
             <h2>Upcoming Bills</h2>
         </section>
